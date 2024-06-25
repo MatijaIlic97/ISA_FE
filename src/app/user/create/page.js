@@ -5,7 +5,6 @@ export default function UserCreate() {
         <>
             <h1>User create</h1>
             <br/>
-            <br/>
             <Link href="/user/list">Go to userList</Link>
         </>
     );
