@@ -1,4 +1,4 @@
-// File: C:\Users\lolye\OneDrive\Desktop\Singi\ISA\art fe\proba-app\src\app\user\list\page.js
+// File: C:\Users\lolye\OneDrive\Desktop\Singi\ISA\GIT\ISA FE\ISA_FE\src\app\user\list\page.js
 import * as entry from '../../../../../src/app/user/list/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
