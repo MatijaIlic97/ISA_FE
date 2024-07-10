@@ -1,6 +1,5 @@
 "use client"
-import {useForm} from "react-hook-form";
-import {Col, Row} from "reactstrap";
+import {Row} from "reactstrap";
 
 export default function Login(){
     // const {register, watch} = useForm();
