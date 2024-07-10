@@ -29,7 +29,7 @@ export default function UserCreate() {
 
             <Button className="btn btn-primary" type="submit" onClick={() => {
                 handleSubmit(async (data) => {
-                    await post("user/createuserbody", data);
+                    await post("user/create", data);
                 })();
             }} >Submit</Button>
         </>

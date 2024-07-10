@@ -13,11 +13,7 @@ export default function UserList() {
 
     return (
         <>
-            {/*{data && data}*/}
-            <h1>User List</h1>
-            <br/>
-            <br/>
-            <Link href="/user/create">Go to usercreate</Link>
+
         </>
     );
 }
