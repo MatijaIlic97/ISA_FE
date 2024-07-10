@@ -1,33 +1,32 @@
 "use client"
-import Link from "next/link";
-import {get} from "@/core/httpClient";
-import {useEffect, useState} from "react";
+
+import {Button, Row} from "reactstrap";
+import {useForm} from "react-hook-form";
+import {post} from "/src/core/httpClient";
 export default function UserCreate() {
-    const [loading, setLoading] = useState(false);
-    const [data,setData] = useState();
+    const {register, watch, handleSubmit, formState:{errors}} = useForm();
 
-    const getFirstName = async () => {
-        setLoading(true);
-        let result = await get("user/getfirstname");
-        setData(result.data);
-        setLoading(false);
-        return result;
-    }
-
-    useEffect(() => {
-        getFirstName();
-    }, []);
-
-    console.log(data);
+    console.log(watch());
     return (
         <>
-            {loading === true ? <h1>Loading...</h1> :(
-                <>
-                    {/*<h1>{data}</h1>*/}
-                    <br/>
-                    <Link href="/user/list">Go to userList</Link>
-                </>
+            <Row className="mb-2">
+                <input type="text" className="form-control" placeholder="First Name" {...register("firstName")} />
+            </Row>
+            <Row className="mb-2">
+                <input type="text" className="form-control" placeholder="Last Name" {...register("lastName", {
+                    required: "Last Name is required",
+                })} />
+            </Row>
+            {errors && errors.lastName && (
+                <span className="text-danger">{errors.lastName.message}</span>
             )}
+
+            <Button className="btn btn-primary" type="submit" onClick={() => {
+                handleSubmit(async (data) => {
+                    await post("user/createuserbody", data);
+                })();
+            }} >Submit</Button>
         </>
+
     );
 }
