@@ -10,8 +10,14 @@ export default function UserCreate() {
     return (
         <>
             <Row className="mb-2">
-                <input type="text" className="form-control" placeholder="First Name" {...register("firstName")} />
+                <input type="text" className="form-control" placeholder="First Name" {...register("firstName", {
+                    required: "First Name is required",
+                })} />
             </Row>
+
+            {errors && errors.firstName && (
+                <span className="text-danger">{errors.firstName.message}</span>
+            )}
             <Row className="mb-2">
                 <input type="text" className="form-control" placeholder="Last Name" {...register("lastName", {
                     required: "Last Name is required",
