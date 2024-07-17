@@ -25,7 +25,7 @@ const DeleteUserDialog = ({isOpen}) => {
                     let result = await del(`/user/delete?userId=${state.row.id}`);
 
                     if (result && result.status === 200) {
-                        toast.success("Successfully created!");
+                        toast.success("Successfully deleted!");
                         dispatch({
                             type: listAction.RELOAD
                         });
