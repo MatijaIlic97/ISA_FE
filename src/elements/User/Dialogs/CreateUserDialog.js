@@ -14,10 +14,8 @@ const CreateUserDialog = ({isOpen}) => {
 
     const {
         register,
-        watch,
         handleSubmit,
         formState: {errors},
-        setValue
     } = useForm({
         mode: "onSubmit"
     });

@@ -2,9 +2,9 @@ import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reac
 import {useListActions} from "@/contexts/listActionContext";
 import listAction from "@/core/listAction";
 import {useForm} from "react-hook-form";
-import {post, put} from "@/core/httpClient";
+import {put} from "@/core/httpClient";
 import {useEffect} from "react";
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
 
 const UpdateUserDialog = ({isOpen}) => {
     const {state, dispatch} = useListActions();
@@ -15,7 +15,6 @@ const UpdateUserDialog = ({isOpen}) => {
 
     const {
         register,
-        watch,
         handleSubmit,
         formState: {errors},
         setValue

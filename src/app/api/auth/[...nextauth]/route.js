@@ -2,7 +2,6 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {post} from "@/core/httpClient";
 import {jwtDecode} from "jwt-decode";
-import storageKey from "@/core/storageKey";
 
 const handler = NextAuth({
     providers: [
@@ -12,7 +11,7 @@ const handler = NextAuth({
                 email: {label: "Email", type: "text", placeholder: "Enter email"},
                 password: {label: "Password", type: "password"},
             },
-            async authorize(credentials, req) {
+            async authorize(credentials) {
                 const res = await post("/auth/login", {
                     email: credentials?.email,
                     password: credentials?.password,
