@@ -66,20 +66,20 @@ const UpdateUserDialog = ({isOpen}) => {
                             <span className="text-danger">{errors.email.message}</span>
                         )}
                     </Col>
-                    <Col md={6}>
-                        <input type="text" className="form-control"
-                               placeholder="Contact number" {...register("contactNumber", {
-                            required: "Contact number is required!",
-                            validate: (value) => {
-                                if (!/^[0-9]*$/.test(value)) {
-                                    return "You can enter only numbers";
-                                }
-                            }
-                        })}/>
-                        {errors && errors.contactNumber && (
-                            <span className="text-danger">{errors.contactNumber.message}</span>
-                        )}
-                    </Col>
+                    {/*<Col md={6}>*/}
+                    {/*    <input type="text" className="form-control"*/}
+                    {/*           placeholder="Contact number" {...register("contactNumber", {*/}
+                    {/*        required: "Contact number is required!",*/}
+                    {/*        validate: (value) => {*/}
+                    {/*            if (!/^[0-9]*$/.test(value)) {*/}
+                    {/*                return "You can enter only numbers";*/}
+                    {/*            }*/}
+                    {/*        }*/}
+                    {/*    })}/>*/}
+                    {/*    {errors && errors.contactNumber && (*/}
+                    {/*        <span className="text-danger">{errors.contactNumber.message}</span>*/}
+                    {/*    )}*/}
+                    {/*</Col>*/}
                 </Row>
                 <Row className="mb-3">
                     <Col md={6} className="mb-1">
