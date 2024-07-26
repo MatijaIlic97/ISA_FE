@@ -28,7 +28,6 @@ export default function Header(){
                         {isTrener() ? (
                             <Link href="/user/list" className="me-3 py-2 text-dark text-decoration-none">User list</Link>
                         ): (<></>)}
-                        {/*<Link href="/user/list" className="me-3 py-2 text-dark text-decoration-none">User list</Link>*/}
                         <Button className="btn btn-small btn-outline-light" onClick={() => {
                             signOut()
                         }}>Sign out</Button>
