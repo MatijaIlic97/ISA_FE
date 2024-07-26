@@ -18,12 +18,12 @@ export const AxiosAuth = axios.create({
 });
 
 export const get = async (url, params) => {
-    return await Axios.get(url, {params});
+    return await AxiosAuth.get(url, {params});
 }
 
 export const post = async (url, params, config) => {
     try {
-        return await Axios.post(url, params, config);
+        return await AxiosAuth.post(url, params, config);
     } catch {
         toast.error("Unsuccessfully!");
     }
@@ -31,7 +31,7 @@ export const post = async (url, params, config) => {
 
 export const put = async (url, params) => {
     try {
-        return await Axios.put(url, params);
+        return await AxiosAuth.put(url, params);
     } catch {
         toast.error("Unsuccessfully updated!");
     }
@@ -39,7 +39,7 @@ export const put = async (url, params) => {
 
 export const del = async (url) => {
     try {
-        return await Axios.delete(url);
+        return await AxiosAuth.delete(url);
     } catch {
         toast.error("Unsuccessfully deleted!");
     }

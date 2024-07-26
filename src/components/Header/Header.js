@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import {Button} from "reactstrap";
 import {signIn, signOut, useSession} from "next-auth/react";
+import Roles from "@/core/roles";
 
 export default function Header(){
     const {data: session} = useSession();
 
     function isTrener() {
         for(let i=0; i<session.decoded.roles.length; i++){
-            if(session.decoded.roles[i].authority === "ROLE_Trener"){
+            if(session.decoded.roles[i].authority === Roles.TRENER){
                 return true;
             }
         }
