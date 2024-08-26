@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import useListData from "@/hooks/useListData";
 import { useSearchParams } from 'next/navigation';
 import {Card, Container} from "reactstrap";

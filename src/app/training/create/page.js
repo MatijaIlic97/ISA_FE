@@ -4,12 +4,8 @@ import {Button, Card, CardBody, CardHeader, Container, List, Row, Spinner} from 
 import React, {useEffect, useState} from "react";
 import {useListActions} from "@/contexts/listActionContext";
 import useListData from "@/hooks/useListData";
-import listAction from "@/core/listAction";
-import {CiCircleMinus, CiCirclePlus, CiEdit, CiTrash} from "react-icons/ci";
-import Link from "next/link";
-import {CgProfile} from "react-icons/cg";
+import {CiCircleMinus, CiCirclePlus} from "react-icons/ci";
 import DataTable from "react-data-table-component";
-import {BsCalendarDate} from "react-icons/bs";
 import {useForm} from "react-hook-form";
 import {post} from "@/core/httpClient";
 import {toast} from "react-toastify";
