@@ -1,5 +1,4 @@
 import {useCallback, useState} from "react";
-import {get} from "@/core/httpClient";
 import useAuth from "@/hooks/useAuth";
 
 const useListData = (url) => {

@@ -11,6 +11,8 @@ import {IoAddCircleOutline} from "react-icons/io5";
 import {signIn, useSession} from "next-auth/react";
 import useAuth from "@/hooks/useAuth";
 import storageKey from "@/core/storageKey";
+import {CgProfile} from "react-icons/cg";
+import Link from "next/link";
 
 export const tableColumns = [
     {
@@ -39,7 +41,7 @@ export const tableColumns = [
                     }}>
                         <CiEdit/>
                     </Button>
-                    <Button className="btn btn-danger" variant="outline-light" onClick={() => {
+                    <Button className="btn btn-danger me-3" variant="outline-light" onClick={() => {
                         dispatch({
                             type: listAction.DELETE,
                             payload: row
@@ -47,6 +49,11 @@ export const tableColumns = [
                     }}>
                         <CiTrash/>
                     </Button>
+                    <Link className="btn btn-primary me-3" variant="outline-light" href={"profile?id=" + row.id}>
+
+                        <CgProfile />
+                    </Link>
+
                 </>
             );
         },

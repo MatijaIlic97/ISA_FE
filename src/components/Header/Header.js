@@ -4,6 +4,7 @@ import Link from "next/link";
 import {Button} from "reactstrap";
 import {signIn, signOut, useSession} from "next-auth/react";
 import Roles from "@/core/roles";
+import {CgProfile} from "react-icons/cg";
 
 export default function Header(){
     const {data: session} = useSession();
@@ -25,9 +26,12 @@ export default function Header(){
                 {session && session.user ? (
                     <>
                         <Link href="/" className="me-3 py-2 text-dark text-decoration-none">{session.decoded.email}</Link>
-                        {isTrener() ? (
+                        {isTrener() ? (<>
                             <Link href="/user/list" className="me-3 py-2 text-dark text-decoration-none">User list</Link>
+                            <Link href="/training/create" className="me-3 py-2 text-dark text-decoration-none">Create training</Link>
+                            </>
                         ): (<></>)}
+                        <Link href={"/user/profile?id="+session.decoded.id} className="me-3 py-2 text-dark text-decoration-none"><CgProfile /></Link>
                         <Button className="btn btn-small btn-outline-light" onClick={() => {
                             signOut()
                         }}>Sign out</Button>
