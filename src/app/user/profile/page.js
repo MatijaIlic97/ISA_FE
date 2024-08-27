@@ -3,7 +3,7 @@
 import {useEffect} from "react";
 import useListData from "@/hooks/useListData";
 import { useSearchParams } from 'next/navigation';
-import {Card, Container} from "reactstrap";
+import {Card, CardBody, CardHeader, Container} from "reactstrap";
 
 export default function UserProfile(){
     const searchParams = useSearchParams();
@@ -25,8 +25,14 @@ export default function UserProfile(){
         <>
             <Container  className="mt-5 content-center">
                 <Card className="align-middle">
-                    {data !== null && <h1 className={"m-auto"}>{data.firstName}</h1>}
-                    {data !== null && <h1 className={"m-auto"}>Number of trainings: {data.numberOfTrainings}</h1>}
+                    <CardHeader className={"text-center"}>
+                        {data !== null && <h1 className={"m-auto"}>{data.firstName} {data.lastName}</h1>}
+                    </CardHeader>
+                    <CardBody className={"text-center"}>
+                        {data !== null && <h1 className={"m-auto"}>Belt: {data.belt}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Total number of trainings: {data.numberOfTrainings}</h1>}
+                    </CardBody>
+
                 </Card>
 
             </Container>

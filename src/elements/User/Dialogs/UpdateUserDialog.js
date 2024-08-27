@@ -1,10 +1,11 @@
 import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
 import {useListActions} from "@/contexts/listActionContext";
 import listAction from "@/core/listAction";
-import {useForm} from "react-hook-form";
+import {set, useForm} from "react-hook-form";
 import {put} from "@/core/httpClient";
 import {useEffect} from "react";
 import {toast} from "react-toastify";
+import data from "bootstrap/js/src/dom/data";
 
 const UpdateUserDialog = ({isOpen}) => {
     const {state, dispatch} = useListActions();
@@ -28,6 +29,11 @@ const UpdateUserDialog = ({isOpen}) => {
         setValue("lastName", state.row.lastName);
         setValue("email", state.row.email);
         setValue("id", state.row.id);
+        setValue("belt", state.row.belt);
+        setValue("weight", state.row.weight);
+        setValue("height", state.row.height);
+        setValue("dateOfBirth", state.row.dateOfBirth);
+        setValue("startDate", state.row.startDate);
     }, [state]);
 
     return (
@@ -65,22 +71,60 @@ const UpdateUserDialog = ({isOpen}) => {
                             <span className="text-danger">{errors.email.message}</span>
                         )}
                     </Col>
-                    {/*<Col md={6}>*/}
-                    {/*    <input type="text" className="form-control"*/}
-                    {/*           placeholder="Contact number" {...register("contactNumber", {*/}
-                    {/*        required: "Contact number is required!",*/}
-                    {/*        validate: (value) => {*/}
-                    {/*            if (!/^[0-9]*$/.test(value)) {*/}
-                    {/*                return "You can enter only numbers";*/}
-                    {/*            }*/}
-                    {/*        }*/}
-                    {/*    })}/>*/}
-                    {/*    {errors && errors.contactNumber && (*/}
-                    {/*        <span className="text-danger">{errors.contactNumber.message}</span>*/}
-                    {/*    )}*/}
-                    {/*</Col>*/}
+                    <Col md={6} className="mb-1">
+                        <input type="text" className="form-control" placeholder="Belt" {...register("belt", {
+                            required: "Belt is required!"
+                        })} />
+                        {errors && errors.belt && (
+                            <span className="text-danger">{errors.belt.message}</span>
+                        )}
+                    </Col>
                 </Row>
                 <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <input type="number" className="form-control" placeholder="Weight" {...register("weight", {
+                            required: "Weight is required!"
+                        })} />
+                        {errors && errors.weight && (
+                            <span className="text-danger">{errors.weight.message}</span>
+                        )}
+                    </Col>
+                    <Col md={6} className="mb-1">
+                        <input type="number" className="form-control" placeholder="Height" {...register("height", {
+                            required: "Height is required!"
+                        })} />
+                        {errors && errors.height && (
+                            <span className="text-danger">{errors.height.message}</span>
+                        )}
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <input type="date" className="form-control" placeholder="Birth Date" {...register("dateOfBirth", {
+                            required: "Birth Date is required!"
+                        })} />
+                        {errors && errors.date_of_birth && (
+                            <span className="text-danger">{errors.date_of_birth.message}</span>
+                        )}
+                    </Col>
+                    <Col md={6} className="mb-1">
+                        <input type="date" className="form-control" placeholder="Start Date" {...register("startDate", {
+                            required: "Start Date is required!"
+                        })} />
+                        {errors && errors.start_date && (
+                            <span className="text-danger">{errors.start_date.message}</span>
+                        )}
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <select type="select" className="form-control" {...register("gender", {
+                            required: "Gender is required!"
+                        })}>
+                            <option>male</option>
+                            <option>female</option>
+                        </select>
+                    </Col>
                     <Col md={6} className="mb-1">
                         <input type="password" className="form-control"
                                placeholder="Password" {...register("password", {
@@ -90,14 +134,15 @@ const UpdateUserDialog = ({isOpen}) => {
                             <span className="text-danger">{errors.password.message}</span>
                         )}
                     </Col>
-                    <Col md={6}></Col>
+
                 </Row>
             </ModalBody>
             <ModalFooter>
                 <Button className="btn btn-success" type="button" onClick={() => {
+
                     handleSubmit(async (data) => {
                         let result = await put("/user/update", data);
-
+                        console.log(data)
                         if (result && result.status === 200) {
                             toast.success("Successfully updated!");
                             dispatch({

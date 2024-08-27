@@ -23,7 +23,7 @@ export default function CreateTraining() {
             sortable: false
         },
         {
-            name: 'Options',
+            name: 'Add',
             selector: (row) => `${row}`,
             cell: (row) => {
 
@@ -71,7 +71,7 @@ export default function CreateTraining() {
             sortable: false
         },
         {
-            name: 'Options',
+            name: 'Remove',
             selector: (row) => `${row}`,
             cell: (row) => {
 
@@ -97,7 +97,7 @@ export default function CreateTraining() {
     ]
 
     const [pageNumber, setPageNumber] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(50);
     const {state, dispatch} = useListActions();
     const [usersToAdd, setUsersToAdd] = useState([]);
     const [listData, setListData] = useState([]);

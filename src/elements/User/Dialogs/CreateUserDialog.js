@@ -71,8 +71,60 @@ const CreateUserDialog = ({isOpen}) => {
                     {/*        <span className="text-danger">{errors.contactNumber.message}</span>*/}
                     {/*    )}*/}
                     {/*</Col>*/}
+                    <Col md={6} className="mb-1">
+                        <input type="text" className="form-control" placeholder="Belt" {...register("belt", {
+                            required: "Belt is required!"
+                        })} />
+                        {errors && errors.belt && (
+                            <span className="text-danger">{errors.belt.message}</span>
+                        )}
+                    </Col>
                 </Row>
                 <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <input type="number" className="form-control" placeholder="Weight" {...register("weight", {
+                            required: "Weight is required!"
+                        })} />
+                        {errors && errors.weight && (
+                            <span className="text-danger">{errors.weight.message}</span>
+                        )}
+                    </Col>
+                    <Col md={6} className="mb-1">
+                        <input type="number" className="form-control" placeholder="Height" {...register("height", {
+                            required: "Height is required!"
+                        })} />
+                        {errors && errors.height && (
+                            <span className="text-danger">{errors.height.message}</span>
+                        )}
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <input type="date" className="form-control" placeholder="Birth Date" {...register("dateOfBirth", {
+                            required: "Birth Date is required!"
+                        })} />
+                        {errors && errors.date_of_birth && (
+                            <span className="text-danger">{errors.date_of_birth.message}</span>
+                        )}
+                    </Col>
+                    <Col md={6} className="mb-1">
+                        <input type="date" className="form-control" placeholder="Start Date" {...register("startDate", {
+                            required: "Start Date is required!"
+                        })} />
+                        {errors && errors.start_date && (
+                            <span className="text-danger">{errors.start_date.message}</span>
+                        )}
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <select type="select" className="form-control" {...register("gender", {
+                            required: "Gender is required!"
+                        })}>
+                            <option>male</option>
+                            <option>female</option>
+                        </select>
+                    </Col>
                     <Col md={6} className="mb-1">
                         <input type="password" className="form-control" placeholder="Password" {...register("password", {
                             required: "Password is required!"
@@ -81,7 +133,6 @@ const CreateUserDialog = ({isOpen}) => {
                             <span className="text-danger">{errors.password.message}</span>
                         )}
                     </Col>
-                    <Col md={6}></Col>
                 </Row>
             </ModalBody>
             <ModalFooter>
