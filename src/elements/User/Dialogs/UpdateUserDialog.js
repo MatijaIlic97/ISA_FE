@@ -1,11 +1,10 @@
 import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
 import {useListActions} from "@/contexts/listActionContext";
 import listAction from "@/core/listAction";
-import {set, useForm} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {put} from "@/core/httpClient";
 import {useEffect} from "react";
 import {toast} from "react-toastify";
-import data from "bootstrap/js/src/dom/data";
 
 const UpdateUserDialog = ({isOpen}) => {
     const {state, dispatch} = useListActions();
@@ -118,7 +117,7 @@ const UpdateUserDialog = ({isOpen}) => {
                 </Row>
                 <Row className="mb-3">
                     <Col md={6} className="mb-1">
-                        <select type="select" className="form-control" {...register("gender", {
+                        <select className="form-control" {...register("gender", {
                             required: "Gender is required!"
                         })}>
                             <option>male</option>

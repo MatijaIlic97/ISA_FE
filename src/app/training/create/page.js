@@ -1,5 +1,5 @@
 'use client'
-import {Button, Card, CardBody, CardHeader, Container, List, Row, Spinner} from "reactstrap";
+import {Button, Card, CardBody, CardHeader, Container, Row, Spinner} from "reactstrap";
 
 import React, {useEffect, useState} from "react";
 import {useListActions} from "@/contexts/listActionContext";

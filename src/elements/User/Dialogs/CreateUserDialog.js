@@ -118,7 +118,7 @@ const CreateUserDialog = ({isOpen}) => {
                 </Row>
                 <Row className="mb-3">
                     <Col md={6} className="mb-1">
-                        <select type="select" className="form-control" {...register("gender", {
+                        <select className="form-control" {...register("gender", {
                             required: "Gender is required!"
                         })}>
                             <option>male</option>
