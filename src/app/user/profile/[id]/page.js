@@ -1,25 +1,26 @@
 'use client';
 
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import useListData from "@/hooks/useListData";
-import { useSearchParams } from 'next/navigation';
+import {usePathname, useSearchParams} from 'next/navigation';
 import {Card, CardBody, CardHeader, Container} from "reactstrap";
+import {useRouter} from "next/navigation";
 
 export default function UserProfile(){
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+    const pathname = usePathname();
+    const a = pathname.split("/")[3];
+    // setId(Number(a));
 
     const {
         getData,
         loading,
         data
-    } = useListData(`user/profile?id=${id}`);
+    } = useListData(`user/profile?profile=${a}`);
 
     useEffect(() => {
-        getData(`user/profile?id=${id}`);
-    }, [id]);
+        getData(`user/profile?profile=${a}`);
+    }, [a]);
 
-    (console.log(data));
 
     return (
         <>

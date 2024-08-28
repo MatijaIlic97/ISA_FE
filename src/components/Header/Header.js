@@ -31,7 +31,7 @@ export default function Header(){
                             <Link href="/training/create" className="me-3 py-2 text-dark text-decoration-none">Create training</Link>
                             </>
                         ): (<></>)}
-                        <Link href={"/user/profile?id="+session.decoded.id} className="me-3 py-2 text-dark text-decoration-none"><CgProfile /></Link>
+                        <Link href={"/user/profile/"+session.decoded.id} className="me-3 py-2 text-dark text-decoration-none"><CgProfile /></Link>
                         <Button className="btn btn-small btn-outline-light" onClick={() => {
                             signOut()
                         }}>Sign out</Button>

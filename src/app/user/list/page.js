@@ -46,7 +46,7 @@ export const tableColumns = [
                     }}>
                         <CiTrash/>
                     </Button>
-                    <Link className="btn btn-primary me-3" variant="outline-light" href={"profile?id=" + row.id}>
+                    <Link className="btn btn-primary me-3" variant="outline-light" href={"profile/" + row.profile}>
 
                         <CgProfile />
                     </Link>
