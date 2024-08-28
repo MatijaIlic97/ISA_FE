@@ -1,10 +1,9 @@
 'use client';
 
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import useListData from "@/hooks/useListData";
-import {usePathname, useSearchParams} from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import {Card, CardBody, CardHeader, Container} from "reactstrap";
-import {useRouter} from "next/navigation";
 
 export default function UserProfile(){
     const pathname = usePathname();
