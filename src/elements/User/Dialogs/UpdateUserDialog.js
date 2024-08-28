@@ -33,6 +33,7 @@ const UpdateUserDialog = ({isOpen}) => {
         setValue("height", state.row.height);
         setValue("dateOfBirth", state.row.dateOfBirth);
         setValue("startDate", state.row.startDate);
+        setValue("profile", state.row.profile);
     }, [state]);
 
     return (
@@ -132,6 +133,7 @@ const UpdateUserDialog = ({isOpen}) => {
                         {errors && errors.password && (
                             <span className="text-danger">{errors.password.message}</span>
                         )}
+                        <input type="hidden" className="form-control" {...register("profile")} />
                     </Col>
 
                 </Row>

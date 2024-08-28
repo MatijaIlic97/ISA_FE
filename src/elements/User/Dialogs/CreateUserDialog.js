@@ -4,6 +4,7 @@ import listAction from "@/core/listAction";
 import {useForm} from "react-hook-form";
 import {post} from "@/core/httpClient";
 import {toast} from "react-toastify";
+import {useEffect, useState} from "react";
 
 const CreateUserDialog = ({isOpen}) => {
     const {dispatch} = useListActions();
@@ -19,6 +20,7 @@ const CreateUserDialog = ({isOpen}) => {
     } = useForm({
         mode: "onSubmit"
     });
+
 
     return (
         <Modal isOpen={isOpen} toggle={toggle}>
@@ -131,6 +133,16 @@ const CreateUserDialog = ({isOpen}) => {
                         })} />
                         {errors && errors.password && (
                             <span className="text-danger">{errors.password.message}</span>
+                        )}
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col md={6} className="mb-1">
+                        <input type="text" className="form-control" placeholder="profile" {...register("profile", {
+                            required: "Profile is required!"
+                        })} />
+                        {errors && errors.profile && (
+                            <span className="text-danger">{errors.profile.message}</span>
                         )}
                     </Col>
                 </Row>
