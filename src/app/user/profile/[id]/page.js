@@ -29,8 +29,13 @@ export default function UserProfile(){
                         {data !== null && <h1 className={"m-auto"}>{data.firstName} {data.lastName}</h1>}
                     </CardHeader>
                     <CardBody className={"text-center"}>
-                        {data !== null && <h1 className={"m-auto"}>Belt: {data.belt}</h1>}
                         {data !== null && <h1 className={"m-auto"}>Total number of trainings: {data.numberOfTrainings}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Belt: {data.belt}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Email: {data.email}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Weight: {data.weight}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Height: {data.height}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Birth Date: {data.dateOfBirth}</h1>}
+                        {data !== null && <h1 className={"m-auto"}>Start Date: {data.startDate}</h1>}
                     </CardBody>
 
                 </Card>
