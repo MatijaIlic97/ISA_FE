@@ -1,13 +1,11 @@
-import {Button, Col, Input, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
+import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
 import {useListActions} from "@/contexts/listActionContext";
 import listAction from "@/core/listAction";
 import {useForm} from "react-hook-form";
 import {post} from "@/core/httpClient";
 import {toast} from "react-toastify";
-import {useEffect, useState} from "react";
 
 const CreateUserDialog = ({isOpen}) => {
-    const [profile, setProfile] = useState("");
     const {dispatch} = useListActions();
 
 
