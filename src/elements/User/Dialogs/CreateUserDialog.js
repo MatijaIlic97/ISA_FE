@@ -1,4 +1,4 @@
-import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
+import {Button, Col, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
 import {useListActions} from "@/contexts/listActionContext";
 import listAction from "@/core/listAction";
 import {useForm} from "react-hook-form";
@@ -102,6 +102,7 @@ const CreateUserDialog = ({isOpen}) => {
                 </Row>
                 <Row className="mb-3">
                     <Col md={6} className="mb-1">
+                        <Label>Birth Date</Label>
                         <input type="date" className="form-control" placeholder="Birth Date" {...register("dateOfBirth", {
                             required: "Birth Date is required!"
                         })} />
@@ -110,6 +111,7 @@ const CreateUserDialog = ({isOpen}) => {
                         )}
                     </Col>
                     <Col md={6} className="mb-1">
+                        <Label>Start Date</Label>
                         <input type="date" className="form-control" placeholder="Start Date" {...register("startDate", {
                             required: "Start Date is required!"
                         })} />
@@ -137,19 +139,20 @@ const CreateUserDialog = ({isOpen}) => {
                     </Col>
                 </Row>
                 <Row className="mb-3">
-                    <Col md={6} className="mb-1">
-                        <input type="text" className="form-control" placeholder="profile" {...register("profile", {
-                            required: "Profile is required!"
-                        })} />
-                        {errors && errors.profile && (
-                            <span className="text-danger">{errors.profile.message}</span>
-                        )}
-                    </Col>
+                    {/*<Col md={6} className="mb-1">*/}
+                    {/*    <input type="text" className="form-control" placeholder="profile" {...register("profile", {*/}
+                    {/*        required: "Profile is required!"*/}
+                    {/*    })} />*/}
+                    {/*    {errors && errors.profile && (*/}
+                    {/*        <span className="text-danger">{errors.profile.message}</span>*/}
+                    {/*    )}*/}
+                    {/*</Col>*/}
                 </Row>
             </ModalBody>
             <ModalFooter>
                 <Button className="btn btn-success" type="button" onClick={() => {
                     handleSubmit(async (data) => {
+                        data.profile = data.firstName.toLowerCase() + "_" + data.lastName.toLowerCase();
                         let result = await post("/user/create", data);
 
                         if (result && result.status === 201) {
