@@ -74,12 +74,18 @@ const CreateUserDialog = ({isOpen}) => {
                     {/*    )}*/}
                     {/*</Col>*/}
                     <Col md={6} className="mb-1">
-                        <input type="text" className="form-control" placeholder="Belt" {...register("belt", {
+                        <select className="form-control" {...register("belt", {
                             required: "Belt is required!"
-                        })} />
-                        {errors && errors.belt && (
-                            <span className="text-danger">{errors.belt.message}</span>
-                        )}
+                        })}>
+                            <option>White</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>Brown</option>
+                            <option>Black</option>
+
+                        </select>
                     </Col>
                 </Row>
                 <Row className="mb-3">
